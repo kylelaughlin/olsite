@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.nav-wrapper {
+  background-color: rgba(200, 200, 200, 0.2);
+}

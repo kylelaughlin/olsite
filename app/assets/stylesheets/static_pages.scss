@@ -1,0 +1,45 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.banner {
+  margin-top: 35vh;
+  margin-right: 20px;
+  max-width: 590px;
+}
+
+.home-background {
+  background: image-url("fire_escape.jpg");
+  background-size:cover;
+  height: 100vh;
+}
+
+.banner-text {
+  background-color: #522A1E;
+  padding: 5px;
+  box-shadow: 10px 10px 5px rgba(136,136,136,0.5);
+}
+
+.inline {
+  display: inline;
+}
+
+.sub-banner {
+  height: 30px;
+}
+
+.facebook-button {
+  height: 30px;
+  margin-right: 30px;
+}
+
+.sub-banner-text {
+  background-color: #CDCDCD;
+  margin-top: 0px;
+  height: 30px;
+  width: 40%;
+}
+
+.sub-banner-text:hover {
+  cursor: pointer;
+}

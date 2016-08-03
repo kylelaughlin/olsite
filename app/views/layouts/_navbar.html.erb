@@ -1,0 +1,22 @@
+<div class="nav-container">
+  <nav class="nav-color">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo black-text">Out Loud</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons black-text">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><%= link_to "Song List", songs_path, class: "black-text" %></li>
+        <li><%= link_to "Photos", photos_path, class: "black-text" %></li>
+        <li><a class="black-text" href="badges.html">Components</a></li>
+        <li><a class="black-text" href="collapsible.html">Javascript</a></li>
+        <li><a class="black-text" href="mobile.html">Mobile</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><%= link_to "Song List", songs_path %></li>
+        <li><%= link_to "Photos", photos_path %></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>

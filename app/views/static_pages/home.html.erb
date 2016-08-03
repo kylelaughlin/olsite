@@ -1,35 +1,19 @@
 <div class="home-background">
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Out Loud</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="dark-layer">
+    <%= render "layouts/navbar" %>
 
-  <div class="banner">
-    <div class="banner-text white-text center-align">
-      <h3 class="inline">Nebraska's Rock Party Band</h3>
-    </div>
-    <div class="sub-banner">
-      <div class="inline right">
-        <a href="http://www.facebook.com/outloudrock"><%= image_tag "fb.png", class: "facebook-button"%></a>
+    <div class="banner">
+      <div class="banner-text center-align">
+        <h3 class="inline">Nebraska's Rock Party Band</h3>
       </div>
-      <div class="inline right center-align sub-banner-text">
-        <h5 class="inline">Schedule  <i class="material-icons">subject</i></h5>
+      <div class="sub-banner">
+        <div class="inline right">
+          <a href="http://www.facebook.com/outloudrock"><%= image_tag "fb.png", class: "facebook-button"%></a>
+        </div>
+        <div class="inline right center-align sub-banner-text">
+          <h5 class="inline">Schedule  <i class="material-icons">subject</i></h5>
+        </div>
       </div>
     </div>
-  </div>
-
+“”  </div>
 </div>

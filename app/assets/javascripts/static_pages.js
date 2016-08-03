@@ -5,4 +5,14 @@
 $(document).on("turbolinks:load", function(){
       $(".button-collapse").sideNav();
       $('.materialboxed').materialbox();
+
+      $("#schedule").on("click", function(){
+        if($("#expanded").hasClass("hide")){
+          $("#expanded").removeClass("hide");
+        }else{
+          $("#expanded").addClass("hide");
+        };
+      });
+
+
 })

@@ -1,0 +1,10 @@
+<%= render 'layouts/navbar' %>
+<div class="center-align">
+  <h3>Where we're going</h3>
+  <% @future.each do |f| %>
+    <p><%= f.performance_date.strftime("%B %e, %Y")  %> <strong><%= f.venue %></strong>, <%= f.location %> <%= f.time %></p>
+  <% end %>
+  <h3> Where we've been</h3>
+  <% @past.each do |f| %>
+    <p><%= f.performance_date.strftime("%B %e, %Y")  %> <strong><%= f.venue %></strong>, <%= f.location %> <%= f.time %></p>
+  <% end %>

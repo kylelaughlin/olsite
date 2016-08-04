@@ -1,0 +1,39 @@
+<div class="form-wrapper">
+  <%= form_for(gig) do |f| %>
+    <% if gig.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(gig.errors.count, "error") %> prohibited this gig from being saved:</h2>
+
+        <ul>
+        <% gig.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="input-field">
+      <%= f.label :time %>
+      <%= f.text_field :time, class: "validate" %>
+    </div>
+
+    <div class="input-field">
+      <%= f.label :venue %>
+      <%= f.text_field :venue, class: "validate" %>
+    </div>
+
+    <div class="input-field">
+      <%= f.label :performance_date %>
+      <%= f.datetime_field :performance_date, class: "datepicker", id: "performance_date" %>
+    </div>
+
+    <div class="input-field">
+      <%= f.label :location %>
+      <%= f.text_field :location, class: "validate" %>
+    </div>
+
+    <div class="input-field">
+      <%= f.submit%>
+    </div>
+  <% end %>
+</div>

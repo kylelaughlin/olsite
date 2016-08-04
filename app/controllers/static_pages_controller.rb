@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
+    @future = Gig.future.order("performance_date Asc").limit(5)
   end
 
   def song_list
@@ -10,7 +11,7 @@ class StaticPagesController < ApplicationController
   end
 
   def schedule
-    @future = Gig.future.order("performance_date Desc")
+    @future = Gig.future.order("performance_date Asc")
     @past = Gig.past.order("performance_date Desc")
   end
 

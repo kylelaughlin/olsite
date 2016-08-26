@@ -14,8 +14,11 @@
  *= require_self
  */
 
-body {
-  background-color: rgba(181,70,17,0.8);
+
+
+.container {
+  width: 85%
+
 }
 
 .nav-wrapper {

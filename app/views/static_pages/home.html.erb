@@ -1,26 +1,94 @@
-<div class="home-background">
-  <div class="dark-layer">
-    <%= render "layouts/navbar" %>
 
-    <div class="banner">
-      <div class="banner-text center-align">
-        <h3 class="inline">Nebraska's Rock Party Band</h3>
+
+<div class="home-background">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Brand</a>
       </div>
-      <div class="sub-banner">
-        <div class="inline right">
-          <a href="http://www.facebook.com/outloudrock"><%= image_tag "fb.png", class: "facebook-button"%></a>
-        </div>
-        <div class="inline right center-align sub-banner-text" id="schedule">
-          <h5 class="inline">Schedule  <i class="material-icons">keyboard_arrow_down</i></h5>
-          <div class="expanded-schedule hide" id="expanded">
-            <% @future.each do |f| %>
-              <p><%= f.performance_date.strftime("%B %e, %Y")  %> <strong><%= f.venue %></strong></p>
-            <% end%>
-            <hr>
-            <%= link_to "Full Schedule", schedule_path %>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a data-scroll href="#about">About</a></li>
+          <li><a data-scroll href="#contact">Contact</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <%= image_tag "logo.gif", class: "big-logo" %>
+      <h1 class="white-text">Rock and Roll</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <span id="about"></span>
+  <div class="row section">
+    <div class="col-md-6">
+      <h1><br>Out Loud Rocks</h1>
+      <p>Out Loud is a five piece rock band located in Lincoln, NE. We craft diverse
+        set-lists that can keep you guests on their feet all night or keep it low-keyed
+        to provide that perfect musical backdrop. We are professionals. We pride ourselves
+        on breaking the mold and showing up on time (probably even early) and being easy
+        to communicate and work with.<br><br>
+        Nobody leaves an Out Loud show without hearing one of their favorites.  Our diverse
+        song list has something for everyone. Checkout our complete song list here. We are
+        always working on new tunes!
+      </p>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag "18.jpg", class: "full-image"%>
+    </div>
+  </div>
+<span id="contact"></span>
+<br><br>
+  <div class="pattern-background section">
+
+    <h1>Contact & Booking </h1>
+    <div class="row">
+      <div class="col-md-5 border-radius">
+        <h5>Contact us to talk about what you want to hear!<br><br>For inquiries about
+          pricing and availability please call or text jeff at (402) 669-1248, email us
+          at <%= mail_to "outloudrock@gmail.com" %>
+          or fill out the form provided.<br><br>To help us give you or best price please
+          provide us with details about your event. We will do what ever we can to make
+          your event something to remember!
+        </h5>
+      </div>
+      <div class="col-md-6 border-radius">
+        <%= form_tag do %>
+          <div class="form-group">
+            <%= label_tag :name %>
+            <%= text_field_tag :name, nil, class: "form-control" %>
           </div>
+          <div class="form-group">
+            <%= label_tag :email %>
+            <%= text_field_tag :email,nil ,class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :inquiry %>
+            <%= text_area_tag :inquiry, nil, rows: 6, class: "form-control"%>
+          </div>
+          <%= submit_tag "Send Inquiry", class: "btn btn-primary" %>
+        <% end %>
+        <div class="form-group">
+
         </div>
       </div>
     </div>
   </div>
+
+</div>
+
+<div class="footer text-center">
+  <p> 2016 Out Loud all rights reserved</p>
 </div>

@@ -9,12 +9,53 @@
 }
 
 .home-background {
-  background: image-url("soaring_wings.jpg");
-  background-size:cover;
+  background: image-url("flames.jpg");
+  background-size: cover;
+  width: 100%;
+  background-position: center;
   height: 100vh;
   z-index: 10;
 }
 
+.pattern-background {
+  background: image-url("pattern.jpg");
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.border-radius {
+  border-style: solid;
+  border-radius: 5px;
+  border-width: thin;
+  border-color: #CDCDCD;
+  background-color: rgba(255,255,255,0.9);
+  margin: 15px;
+  padding: 5px;
+}
+
+.section {
+  margin-top: 60px
+}
+
+.big-logo {
+  margin-top: 190px;
+}
+
+.full-image {
+  width: 100%;
+  padding: 20px;
+}
+
+.white-text {
+  color: white;
+}
+
+.footer {
+  padding: 20px;
+  background-color: #333333;
+  color: white;
+  margin-top: 30;
+}
 .dark-layer {
   width: 100%;
   height: 100%;
@@ -87,4 +128,54 @@
 
 .logo {
   width: 49px;
+}
+
+
+////////////
+
+/* ---------------------------------------------- /*
+ * Mouse animate icon
+/* ---------------------------------------------- */
+.mouse-icon {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  border: 2px solid #fff;
+  border-radius: 16px;
+  height: 40px;
+  width: 24px;
+  margin-left: -15px;
+  display: block;
+  z-index: 10;
+  opacity: 0.7;
+}
+.mouse-icon .wheel {
+  -webkit-animation-name: drop;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-play-state: running;
+  -webkit-animation-name: drop;
+          animation-name: drop;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+.mouse-icon .wheel {
+  position: relative;
+  border-radius: 10px;
+  background: #fff;
+  width: 2px;
+  height: 6px;
+  top: 4px;
+  margin-left: auto;
+  margin-right: auto;
 }

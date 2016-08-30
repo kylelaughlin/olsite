@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   get '/reviews', to: 'static_pages#reviews', as: 'reviews'
   get '/contact', to: 'static_pages#contact', as: 'contact'
 
+  post '/mail', to: 'static_pages#mail', as: 'mail'
+
   resources :gigs
 end

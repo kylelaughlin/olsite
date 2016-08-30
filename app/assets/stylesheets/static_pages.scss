@@ -91,12 +91,10 @@ perspective-origin: 50% 100px;
 }
 
 .nav-logo {
-  width: 55px;
+  width: 45px;
   position: absolute;
   top: -0px;
-  -ms-transform: rotate(353deg); /* IE 9 */
--webkit-transform: rotate(353deg); /* Chrome, Safari, Opera */
-transform: rotate(353deg);
+
 }
 
 .photo {
@@ -118,6 +116,9 @@ transform: rotate(353deg);
   padding-top: 5px;
 }
 
+.small-fb {
+  width: 30px;
+}
 
 
 ////////////

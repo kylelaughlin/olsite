@@ -1,6 +1,22 @@
 
 
 <div class="home-background">
+
+<% if flash[:notice] %>
+<div class="modal fade" id="email-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p><%= flash[:notice] %></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<% end %>
+
 <%= render "layouts/navbar" %>
 
   <div class="row">
@@ -49,18 +65,30 @@
         <p>
       </div>
       <div class="col-md-6 border-radius">
-        <%= form_tag do %>
+        <%= form_tag('/mail') do %>
           <div class="form-group">
             <%= label_tag :name %>
-            <%= text_field_tag :name, nil, class: "form-control" %>
+            <%= text_field_tag :name, nil, class: "form-control", required: true %>
           </div>
           <div class="form-group">
             <%= label_tag :email %>
-            <%= text_field_tag :email,nil ,class: "form-control" %>
+            <%= text_field_tag :email,nil ,class: "form-control", required: true %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :phone, "Phone (optional)" %>
+            <%= text_field_tag :phone, nil, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= check_box_tag :texting %>
+            <%= label_tag :texting, "Prefer Text Message Response" %><br/>
+            <%= check_box_tag :calling %>
+            <%= label_tag :calling, "Prefer Phone Call Response" %><br/>
+            <%= check_box_tag :emailing %>
+            <%= label_tag :emailing, "Prefer Email Response" %>
           </div>
           <div class="form-group">
             <%= label_tag :inquiry %>
-            <%= text_area_tag :inquiry, nil, rows: 6, class: "form-control"%>
+            <%= text_area_tag :inquiry, nil, rows: 6, class: "form-control", required: true%>
           </div>
           <%= submit_tag "Send Inquiry", class: "btn btn-primary" %>
         <% end %>

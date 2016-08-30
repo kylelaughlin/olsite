@@ -4,6 +4,6 @@
 
 $(document).on("turbolinks:load", function(){
 
-
+    $('#email-modal').modal('show');
 
 })

@@ -2,6 +2,12 @@
 <%= render 'layouts/navbar' %>
 <div class="dark-background">
   <div class="content-container text-center">
+
+    <p class='white-text list-font spacing'><span><%= link_to image_tag("fb.png", class: "small-fb"),
+    "https://www.facebook.com/outloudrock/events"%> See more
+    details and RSVP to a show on our <%=link_to "facebook page",
+    "https://www.facebook.com/outloudrock/events" %></p>
+
     <h3 class="white-text">Where we're going</h3>
     <% @future.each do |f| %>
       <p class="white-text"><%= f.performance_date.strftime("%B %e, %Y")  %> <strong><%= f.venue %></strong>, <%= f.location %> <%= f.time %></p>

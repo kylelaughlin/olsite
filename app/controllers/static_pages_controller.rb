@@ -53,4 +53,29 @@ class StaticPagesController < ApplicationController
   def reviews
   end
 
+  def mail
+    name = params[:name]
+    email = params[:email]
+    phone = params[:phone].blank? ? "Not Provided" : params[:phone]
+    prefered_contact = []
+    if params[:texting]
+      prefered_contact << "text"
+    end
+    if params[:calling]
+      prefered_contact << "phone call"
+    end
+    if params[:emailing]
+      prefered_contact << "email"
+    end
+    if !prefered_contact.empty?
+      prefered_contact = prefered_contact.join(", ")
+    else
+      prefered_contact = "None Listed"
+    end
+    inquiry = params[:inquiry]
+    ContactMailer.contact_mailer(name, email, phone, prefered_contact, inquiry).deliver_now
+    redirect_to home_path, notice: "Your inquiry has been sent to Out Loud. They will be in contact with you
+    via email at #{email} or by phone at #{phone}.  Thank you for you interest in Out Loud!"
+  end
+
 end

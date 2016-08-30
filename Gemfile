@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # dotenv loads environment variables from a .env file. Read more: https://github.com/bkeepers/dotenv
+  gem 'dotenv-rails'
 end
 
 group :development do

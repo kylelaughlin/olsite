@@ -12,28 +12,28 @@
       </div>
     <% end %>
 
-    <div class="input-field">
+    <div class="form-group">
       <%= f.label :time %>
-      <%= f.text_field :time, class: "validate" %>
+      <%= f.text_field :time, class: "form-control" %>
     </div>
 
-    <div class="input-field">
+    <div class="form-group">
       <%= f.label :venue %>
-      <%= f.text_field :venue, class: "validate" %>
+      <%= f.text_field :venue, class: "form-control" %>
     </div>
 
-    <div class="input-field">
+    <div class="form-group">
       <%= f.label :performance_date %>
-      <%= f.datetime_field :performance_date, class: "datepicker", id: "performance_date" %>
+      <%= f.datetime_field :performance_date, class: "datepicker form-control", id: "performance_date" %>
     </div>
 
-    <div class="input-field">
+    <div class="form-group">
       <%= f.label :location %>
-      <%= f.text_field :location, class: "validate" %>
+      <%= f.text_field :location, class: "form-control" %>
     </div>
 
-    <div class="input-field">
-      <%= f.submit%>
+    <div class="form-group">
+      <%= f.submit class: "btn btn-primary"%>
     </div>
   <% end %>
 </div>

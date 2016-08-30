@@ -1,5 +1,4 @@
 
-
 <div class="home-background">
 
 <% if flash[:notice] %>
@@ -17,7 +16,7 @@
 </div><!-- /.modal -->
 <% end %>
 
-<%= render "layouts/navbar" %>
+
 
   <div class="row">
     <div class="col-sm-12 text-center">
@@ -56,13 +55,20 @@
     <h1>Contact & Booking </h1>
     <div class="row">
       <div class="col-md-5 border-radius">
-        <p>Contact us to talk about what you want to hear!<br><br>For inquiries about
+        <p>
+          Contact us to talk about what you want to hear!<br/><br/>For inquiries about
           pricing and availability please call or text jeff at (402) 669-1248, email us
           at <%= mail_to "outloudrock@gmail.com" %>
-          or fill out the form provided.<br><br>To help us give you or best price please
+          or fill out the form provided.<br/><br/>To help us give you or best price please
           provide us with details about your event. We will do what ever we can to make
-          your event something to remember!
-        <p>
+          your event something to remember!<br/><br/>
+          To see more photos, events, and fan interaction check out our facebook page!
+        </p>
+        <h4 class=text-center>Thanks for your interest in Out Loud!</h4>
+        <div class="text-center">
+          <%=link_to (image_tag "fb.png", alt: "facebook logo"), "https://facebook.com/outloudrock" %>
+          <%= image_tag "logo.gif", alt: "out loud speaker logo", class: "logo-medium" %>
+        </div>
       </div>
       <div class="col-md-6 border-radius">
         <%= form_tag('/mail') do %>

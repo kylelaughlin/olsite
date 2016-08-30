@@ -1,20 +1,19 @@
 <div class="dark-background">
-<%= render "layouts/navbar" %>
-<div class="page-wrapper">
-  <div class="text-center">
-    <%= will_paginate @images, renderer: BootstrapPagination::Rails %>
+  <div class="page-wrapper">
+    <div class="text-center">
+      <%= will_paginate @images, renderer: BootstrapPagination::Rails %>
+    </div>
+    <div class="flex-wrapper">
+      <% @images.each do |src| %>
+        <div class="image-wrapper">
+          <%= image_tag src, class: "photo" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="text-center">
+      <%= will_paginate @images, renderer: BootstrapPagination::Rails %>
+    </div>
   </div>
-  <div class="flex-wrapper">
-    <% @images.each do |src| %>
-      <div class="image-wrapper">
-        <%= image_tag src, class: "photo" %>
-      </div>
-    <% end %>
-  </div>
-  <div class="text-center">
-    <%= will_paginate @images, renderer: BootstrapPagination::Rails %>
-  </div>
-</div>
 
-<%= render "layouts/footer" %>
+  <%= render "layouts/footer" %>
 </div>

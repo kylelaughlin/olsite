@@ -2,12 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.banner {
-  margin-top: 15vh;
-  margin-right: 20px;
-  max-width: 590px;
-}
-
 .home-background {
   background: image-url("flames.jpg");
   background-size: cover;
@@ -50,49 +44,17 @@
   color: white;
 }
 
+.page-wrapper {
+  width: 90%;
+  margin: auto;
+  margin-top: 50px;
+}
+
 .footer {
   padding: 20px;
   background-color: #333333;
   color: white;
   margin-top: 30;
-}
-.dark-layer {
-  width: 100%;
-  height: 100%;
-}
-
-.banner-text {
-  background-color: #B54611;
-  color: white;
-  padding: 5px;
-}
-
-.inline {
-  display: inline;
-}
-
-.sub-banner {
-  height: 30px;
-}
-
-.facebook-button {
-  height: 30px;
-  margin-right: 30px;
-}
-
-.sub-banner-text {
-  background-color: #CDCDCD;
-  margin-top: 0px;
-  height: 30px;
-  width: 50%;
-}
-
-.expanded-schedule {
-  background-color: #CDCDCD;
-}
-
-.sub-banner-text:hover {
-  cursor: pointer;
 }
 
 .flex-wrapper {
@@ -118,17 +80,8 @@
   margin: auto;
 }
 
-.logo-container {
-  display: inline;
-  padding-top: 20px;
-  width: 50px;
-  height: 50px;
-  overflow: hidden;
-}
 
-.logo {
-  width: 49px;
-}
+
 
 
 ////////////

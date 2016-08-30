@@ -1,22 +1,23 @@
-<div class="nav-container">
-  <nav class="nav-color">
-    <div class="nav-wrapper">
-      <a href="/" class="brand-logo black-text"><div class="logo-container"><%= image_tag 'logo.gif', class: "logo" %></div>Out Loud</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons black-text">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><%= link_to "Song List", songs_path, class: "black-text" %></li>
-        <li><%= link_to "Photos", photos_path, class: "black-text" %></li>
-        <li><%= link_to "Schedule", schedule_path, class: "black-text" %></li>
-        <li><%= link_to "Reviews", reviews_path, class: "black-text" %></li>
-        <li><%= link_to "Contact", contact_path, class: "black-text" %></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><%= link_to "Song List", songs_path %></li>
-        <li><%= link_to "Photos", photos_path %></li>
-        <li><%= link_to "Schedule", schedule_path %></li>
-        <li><%= link_to "Reviews", reviews_path %></li>
-        <li><%= link_to "Contact", contact_path %></li>
-      </ul>
-    </div>
+<div class="home-background">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Brand</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a data-scroll href="#about">About</a></li>
+          <li><a data-scroll href="#contact">Contact</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
   </nav>
-</div>

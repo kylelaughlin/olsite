@@ -17,6 +17,10 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+# Will Paginate for pagination. Read more: https://github.com/mislav/will_paginate
+gem 'will_paginate'
+# Add Bootstrap pagination to will paginate view helper. Read more: https://github.com/bootstrap-ruby/will_paginate-bootstrap
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

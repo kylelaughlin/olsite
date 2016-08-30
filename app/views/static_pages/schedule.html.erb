@@ -7,13 +7,13 @@
     details and RSVP to a show on our <%=link_to "facebook page",
     "https://www.facebook.com/outloudrock/events" %></p>
 
-    <h3 class="white-text">Where we're going</h3>
+    <h3 class="white-text spacing">Where we're going</h3>
     <% @future.each do |f| %>
-      <p class="white-text"><%= f.performance_date.strftime("%B %e, %Y")  %> <strong><%= f.venue %></strong>, <%= f.location %> <%= f.time %></p>
+      <p class="white-text thin-font spacing"><%= f.performance_date.strftime("%B %e, %Y")  %> <strong><%= f.venue %></strong>, <%= f.location %> <%= f.time %></p>
     <% end %>
-    <h3 class="white-text"> Where we've been</h3>
+    <h3 class="white-text spacing"> Where we've been</h3>
     <% @past.each do |f| %>
-      <p class="white-text"><%= f.performance_date.strftime("%B %e, %Y")  %> <strong><%= f.venue %></strong>, <%= f.location %></p>
+      <p class="white-text thin-font spacing"><%= f.performance_date.strftime("%B %e, %Y")  %> <strong><%= f.venue %></strong>, <%= f.location %></p>
     <% end %>
   </div>
 

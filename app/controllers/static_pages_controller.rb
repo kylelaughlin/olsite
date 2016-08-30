@@ -36,7 +36,7 @@ class StaticPagesController < ApplicationController
         end
       end
     end
-
+    @image_sources.reverse!
     @images = @image_sources.paginate(:page => params[:page], :per_page => 20)
     # @images = @image_sources.first(20)
     # current_page = params[:page] || 1

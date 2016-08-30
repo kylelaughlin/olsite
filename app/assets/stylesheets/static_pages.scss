@@ -45,6 +45,13 @@
 
 .big-logo {
   margin-top: 190px;
+  transition:all 1s ease-in-out;
+perspective: 800px;
+perspective-origin: 50% 100px;
+}
+
+.big-logo:hover{
+  transform:rotateZ(720deg);
 }
 
 .full-image {
@@ -81,6 +88,15 @@
   height: 300px;
   margin: 10px;
   overflow: hidden;
+}
+
+.nav-logo {
+  width: 55px;
+  position: absolute;
+  top: -0px;
+  -ms-transform: rotate(353deg); /* IE 9 */
+-webkit-transform: rotate(353deg); /* Chrome, Safari, Opera */
+transform: rotate(353deg);
 }
 
 .photo {

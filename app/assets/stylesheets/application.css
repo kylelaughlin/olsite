@@ -14,11 +14,8 @@
  *= require_self
  */
 
-
-
-.container {
-  width: 85%
-
+body {
+  width: 100%
 }
 
 .nav-wrapper {

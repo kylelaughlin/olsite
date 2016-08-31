@@ -6,6 +6,6 @@ class ContactMailer < ApplicationMailer
     @phone = phone
     @prefered_contact = prefered_contact
     @inquiry = inquiry
-    mail(to: "thekylelaughlin@gmail.com", subject: "Website Inquiry: #{@name}")
+    mail(to: "outloudrock@gmail.com", subject: "Website Inquiry: #{@name}")
   end
 end

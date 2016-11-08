@@ -19,23 +19,37 @@ class StaticPagesController < ApplicationController
     access_token = response["access_token"]
 
     #Create the request url to obtain image sources
-    page_url = "https://graph.facebook.com/v2.7/118492114894836?fields=albums%7Bname%2Cphotos.limit(100)%7Bimages%7D%7D&access_token=" +
+    page_url = "https://graph.facebook.com/v2.7/118492114894836?fields=albums{name,photos.limit(1000){images,created_time},created_time}&access_token=" +
                 access_token
     uri = URI.parse(page_url)
     #Send request
     response = Net::HTTP.get_response(uri)
     response = JSON.parse(response.body)
-    #Create empty array to gather image source urls from JSON response
+
+    response = response["albums"]["data"].find { |a| a["name"] == "Shows: 2016" }
+    response = response["photos"]
     @image_sources = []
-    #Iterate through each album only accessing selected albums by name
-    response["albums"]["data"].each do |album|
-      if album["name"] == "Shows: 2016"
-        album["photos"]["data"].each do |photo|
-          #populate array with strings representing the source url for each image
-          @image_sources << photo["images"][0]["source"]
-        end
+    loop do
+      response["data"].each do |photo|
+        @image_sources << photo["images"][0]["source"]
       end
+      next_page = response["paging"]["next"]
+      break if next_page == nil
+      uri = URI.parse(next_page)
+      response = Net::HTTP.get_response(uri)
+      response = JSON.parse(response.body)
     end
+    # #Create empty array to gather image source urls from JSON response
+    # @image_sources = []
+    # #Iterate through each album only accessing selected albums by name
+    # response["albums"]["data"].each do |album|
+    #   if album["name"] == "Shows: 2016"
+    #     album["photos"]["data"].each do |photo|
+    #       #populate array with strings representing the source url for each image
+    #       @image_sources << photo["images"][0]["source"]
+    #     end
+    #   end
+    # end
     @image_sources.reverse!
     @images = @image_sources.paginate(:page => params[:page], :per_page => 20)
     # @images = @image_sources.first(20)

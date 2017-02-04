@@ -26,7 +26,7 @@ class StaticPagesController < ApplicationController
     response = Net::HTTP.get_response(uri)
     response = JSON.parse(response.body)
 
-    response = response["albums"]["data"].find { |a| a["name"] == "Shows: 2016" }
+    response = response["albums"]["data"].find { |a| a["name"] == "Shows: 2016 - 2017" }
     response = response["photos"]
     @image_sources = []
     loop do

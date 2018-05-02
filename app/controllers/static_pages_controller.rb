@@ -27,7 +27,7 @@ class StaticPagesController < ApplicationController
     raw_response = HTTParty.get(page_url)
     response = JSON.parse(raw_response.body)
 
-    response = response["albums"]["data"].find { |a| a["name"] == "Shows: 2016 - 2017" }
+    response = response["albums"]["data"].find { |a| a["name"] == "Shows: 2016 - 2018" }
     response = response["photos"]
     @image_sources = []
     loop do

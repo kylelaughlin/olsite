@@ -91,6 +91,8 @@
             <%= label_tag :inquiry %>
             <%= text_area_tag :inquiry, nil, rows: 6, class: "form-control", required: true%>
           </div>
+          <%= recaptcha_tags %>
+          <br/>
           <%= submit_tag "Send Inquiry", class: "btn btn-primary" %>
         <% end %>
         <div class="form-group">

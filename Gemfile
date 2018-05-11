@@ -23,6 +23,8 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
 gem 'httparty'
+gem 'recaptcha', require: 'recaptcha/rails'
+gem 'bcrypt'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

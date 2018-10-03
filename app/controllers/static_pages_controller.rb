@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
 
   def photos
     #Create the request url to obtain the access token
-    url = "https://graph.facebook.com/v2.7/oauth/access_token?client_id=" +     ENV["APP_ID"] +
+    url = "https://graph.facebook.com/v3.1/oauth/access_token?client_id=" + ENV["APP_ID"] +
                     "&client_secret=" + ENV["APP_SECRET"] +
                     "&grant_type=client_credentials"
     #Send request
@@ -27,7 +27,7 @@ class StaticPagesController < ApplicationController
     raw_response = HTTParty.get(page_url)
     response = JSON.parse(raw_response.body)
 
-    response = response["albums"]["data"].find { |a| a["name"] == "Shows: 2016 - 2018" }
+    response = response["albums"]["data"].find { |a| a["name"].include?('Shows:') }
     response = response["photos"]
     @image_sources = []
     loop do

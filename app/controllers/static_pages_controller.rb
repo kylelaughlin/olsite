@@ -27,18 +27,42 @@ class StaticPagesController < ApplicationController
     raw_response = HTTParty.get(page_url)
     response = JSON.parse(raw_response.body)
 
-    response = response["albums"]["data"].find { |a| a["name"].include?('Shows:') }
-    response = response["photos"]
-    @image_sources = []
-    loop do
-      response["data"].each do |photo|
-        @image_sources << photo["images"][0]["source"]
+    # response = response["albums"]["data"].find { |a| a["name"].include?('Shows:') }
+    # response = response["photos"]
+
+    albums = response['albums']['data'].select { |a| a['name'].include?('Shows') }
+    image_groups = []
+    albums.each do |album|
+      images = []
+      photos = album['photos']
+      loop do
+        photos['data'].each do |photo|
+          images << photo['images'][0]['source']
+        end
+
+        next_page_url = response.dig('paging', 'next')
+        break unless next_page_url
+        raw_response = HTTParty.get(next_page_url)
+        photos = JSON.parse(raw_response.body)
       end
-      next_page_url = response["paging"]["next"]
-      break if next_page_url == nil
-      raw_response = HTTParty.get(next_page_url)
-      response = JSON.parse(raw_response.body)
+
+      image_groups << images.reverse
     end
+
+    @image_sources = image_groups.flatten
+
+
+    # @image_sources = []
+    # loop do
+    #   response["data"].each do |photo|
+    #     @image_sources << photo["images"][0]["source"]
+    #   end
+    #   next_page_url = response["paging"]["next"]
+    #   break if next_page_url == nil
+    #   raw_response = HTTParty.get(next_page_url)
+    #   response = JSON.parse(raw_response.body)
+    # end
+
     # #Create empty array to gather image source urls from JSON response
     # @image_sources = []
     # #Iterate through each album only accessing selected albums by name
@@ -50,7 +74,7 @@ class StaticPagesController < ApplicationController
     #     end
     #   end
     # end
-    @image_sources.reverse!
+    # @image_sources.reverse!
     @images = @image_sources.paginate(:page => params[:page], :per_page => 20)
     # @images = @image_sources.first(20)
     # current_page = params[:page] || 1

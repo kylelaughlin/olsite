@@ -8,48 +8,48 @@ class StaticPagesController < ApplicationController
   end
 
   def photos
-    #Create the request url to obtain the access token
-    url = "https://graph.facebook.com/v3.1/oauth/access_token?client_id=" + ENV["APP_ID"] +
-                    "&client_secret=" + ENV["APP_SECRET"] +
-                    "&grant_type=client_credentials"
-    #Send request
-    raw_response = HTTParty.get(url)
-    response = JSON.parse(raw_response.body)
-
-    #isolate access_token from JSON Response
-    access_token = response["access_token"]
-
-    #Create the request url to obtain image sources
-    page_url = "https://graph.facebook.com/v2.7/118492114894836?fields=albums{name,photos.limit(1000){images,created_time},created_time}&access_token=" +
-                access_token
-
-    #Send request
-    raw_response = HTTParty.get(page_url)
-    response = JSON.parse(raw_response.body)
-
-    # response = response["albums"]["data"].find { |a| a["name"].include?('Shows:') }
-    # response = response["photos"]
-
-    albums = response['albums']['data'].select { |a| a['name'].include?('Shows') }
-    image_groups = []
-    albums.each do |album|
-      images = []
-      photos = album['photos']
-      loop do
-        photos['data'].each do |photo|
-          images << photo['images'][0]['source']
-        end
-
-        next_page_url = response.dig('paging', 'next')
-        break unless next_page_url
-        raw_response = HTTParty.get(next_page_url)
-        photos = JSON.parse(raw_response.body)
-      end
-
-      image_groups << images.reverse
-    end
-
-    @image_sources = image_groups.flatten
+    # #Create the request url to obtain the access token
+    # url = "https://graph.facebook.com/v3.1/oauth/access_token?client_id=" + ENV["APP_ID"] +
+    #                 "&client_secret=" + ENV["APP_SECRET"] +
+    #                 "&grant_type=client_credentials"
+    # #Send request
+    # raw_response = HTTParty.get(url)
+    # response = JSON.parse(raw_response.body)
+    #
+    # #isolate access_token from JSON Response
+    # access_token = response["access_token"]
+    #
+    # #Create the request url to obtain image sources
+    # page_url = "https://graph.facebook.com/v2.7/118492114894836?fields=albums{name,photos.limit(1000){images,created_time},created_time}&access_token=" +
+    #             access_token
+    #
+    # #Send request
+    # raw_response = HTTParty.get(page_url)
+    # response = JSON.parse(raw_response.body)
+    #
+    # # response = response["albums"]["data"].find { |a| a["name"].include?('Shows:') }
+    # # response = response["photos"]
+    #
+    # albums = response['albums']['data'].select { |a| a['name'].include?('Shows') }
+    # image_groups = []
+    # albums.each do |album|
+    #   images = []
+    #   photos = album['photos']
+    #   loop do
+    #     photos['data'].each do |photo|
+    #       images << photo['images'][0]['source']
+    #     end
+    #
+    #     next_page_url = response.dig('paging', 'next')
+    #     break unless next_page_url
+    #     raw_response = HTTParty.get(next_page_url)
+    #     photos = JSON.parse(raw_response.body)
+    #   end
+    #
+    #   image_groups << images.reverse
+    # end
+    #
+    # @image_sources = image_groups.flatten
 
 
     # @image_sources = []
@@ -75,7 +75,17 @@ class StaticPagesController < ApplicationController
     #   end
     # end
     # @image_sources.reverse!
-    @images = @image_sources.paginate(:page => params[:page], :per_page => 20)
+
+
+
+
+    # image_sources = FetchPhotos.new.perform
+    #
+    # @images = image_sources.paginate(:page => params[:page], :per_page => 20)
+
+
+
+
     # @images = @image_sources.first(20)
     # current_page = params[:page] || 1
     # @images = WillPaginate::Collection.create(current_page, 20, @image_sources.length) do |pager|
